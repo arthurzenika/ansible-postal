@@ -15,24 +15,26 @@ ssh_port: "22"
 server_contact: youremail@noreply.test
 
 # Configure your system administrator user accounts
-internal_sys_admins:
-  - username: myawesomeadmin
-    name: Your Name Here
-    state: present
-    groups: ['adm','sudo']
-    shell: "/bin/bash"
-    authorized_keys:
-      # Replace the entire quotes with the PUBLIC ssh key
-      - public_key: "ssh rsa abcd1234 your-ssh-key-here"
-
-  - username: myotheradmin
-    name: Their Name Here
-    state: present
-    groups: ['adm','sudo']
-    shell: "/bin/bash"
-    authorized_keys:
-      # Replace the entire quotes with the PUBLIC ssh key
-      - public_key: "ssh rsa xyz56789 their-ssh-key-here"
+#
+#internal_sys_admins:
+#  - username: myawesomeadmin
+#    name: Your Name Here
+#    state: present
+#    groups: ['adm','sudo']
+#    shell: "/bin/bash"
+#    authorized_keys:
+#      # Replace the entire quotes with the PUBLIC ssh key
+#      - public_key: "ssh rsa abcd1234 your-ssh-key-here"
+#
+#  - username: myotheradmin
+#    name: Their Name Here
+#    state: present
+#    groups: ['adm','sudo']
+#    shell: "/bin/bash"
+#    authorized_keys:
+#      # Replace the entire quotes with the PUBLIC ssh key
+#      - public_key: "ssh rsa xyz56789 their-ssh-key-here"
+internal_sys_admins: []
 
 ############################################################################################
 # Optional changes -- change this only if you are feeling extra nerdy
