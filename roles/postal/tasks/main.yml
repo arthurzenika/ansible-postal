@@ -10,14 +10,15 @@
 - include_tasks: config-db-queue.yml
   when: postal_installed.stat.exists == false
 
+- include_tasks: config-postal.yml
+
 - include_tasks: install-postal.yml
   when: postal_installed.stat.exists == false
 
-- include_tasks: config-postal.yml
 
 - include_tasks: initialize-postal.yml
   when: postal_installed.stat.exists == false
 
-- include_tasks: config-nginx.yml
+# - include_tasks: config-nginx.yml
 
-- include_tasks: config-certbot.yml
+# - include_tasks: config-certbot.yml
