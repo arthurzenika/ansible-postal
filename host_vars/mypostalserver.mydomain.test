@@ -52,3 +52,6 @@ postal_smtp_host: smtp.mailgun.org
 postal_smtp_port: 587
 postal_smtp_username: mymailgunusername@mydomain.test
 postal_smtp_password: yD2CytcD9pHMkPP6RKrwm2Z9ZSn6b
+
+# Configured secret key, don't generate it 
+postal_secret_key: asdfh234kjh324iuadsifouh324

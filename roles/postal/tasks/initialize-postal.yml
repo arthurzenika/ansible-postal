@@ -1,5 +1,5 @@
-- name: Initialize the postal database.
-  command: postal initialize
+# - name: Initialize the postal database.
+#   command: postal initialize
 
 - name: Apply "/etc/rc.local" template to start postal at boot.
   template:
