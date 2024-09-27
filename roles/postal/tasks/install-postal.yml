@@ -13,24 +13,29 @@
     owner: postal
     state: directory
 
-- name: Download latest release of Postal.
-  unarchive:
-    src: https://postal.atech.media/packages/stable/latest.tgz
-    dest: /opt/postal/app/
-    remote_src: yes
-    owner: postal
+- name: Git clone of postal install
+  ansible.builtin.git:
+    repo: https://postalserver.io/start/install 
+    dest: /opt/postal/install
+
+# - name: Download latest release of Postal.
+#   unarchive:
+#     src: https://postal.atech.media/packages/stable/latest.tgz
+#     dest: /opt/postal/app/
+#     remote_src: yes
+#     owner: postal
 
 - name: Create symbolic link to Postal binary.
   file:
-    src: /opt/postal/app/bin/postal
+    src: /opt/postal/install/bin/postal
     dest: /usr/bin/postal
     state: link
 
-- name: Install required dependencies via bundler.
-  command: postal bundle /opt/postal/vendor/bundle
+# - name: Install required dependencies via bundler.
+#   command: postal bundle /opt/postal/vendor/bundle
 
-- name: Initialize the postal config.
-  command: postal initialize-config
+- name: Bootstrap postal 
+  command: postal bootstrap {{ postal_web_host }}
 
 - name: Save the secret key to the Postal home directory.
   shell: >
@@ -45,3 +50,9 @@
     owner: postal
     group: root
     mode: 0600
+
+- name: Pull images for postal
+  command: docker compose -f /opt/postal/install/docker-compose.yml -p postal  pull
+
+# - name: Initialize the postal config.
+#   command: postal initialize

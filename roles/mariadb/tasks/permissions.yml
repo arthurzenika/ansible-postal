@@ -1,3 +1,8 @@
+# - name: Start service mariadb, if not started
+#   ansible.builtin.service:
+#     name: mariadb
+#     state: started
+
 - name: Ensure root password for all root accounts
   mysql_user:
     name: "{{ mysql_root_username }}"

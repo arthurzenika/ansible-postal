@@ -1,2 +1,4 @@
 [postal]
-mypostalserver.mydomain.test
+#localhost ansible_connection=local
+#comment 
+mypostalserver.mydomain.test ansible_connection=local

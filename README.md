@@ -10,10 +10,12 @@
 # Overview
 This is an example of an Ansible repository that will automatically deploy Postal SMTP server and secure it for you. It does require a little background in server administration and how Ansible works.
 
+⚠ This fork disables some functionnality (nginx, certbot, etc) and adds packer since the target is AWS hosting
+
 This entire setup supports the following features:
 * 🚀 Automatic installation & configuration of [Postal](https://postal.atech.media/)
 * ⚡️ Deploy a brand new server in **under 6 minutes** (even on a slower server)
-* 😱 Automatic configuration of HTTPS & TLS for secure emails & web GUI Access (via Let's Encrypt)
+* ~~😱 Automatic configuration of HTTPS & TLS for secure emails & web GUI Access (via Let's Encrypt)~~
 * 🔐 Secure server management with hardened SSH (passwordless, disabled root login, and custom SSH ports)
 * ⏫ Automatic server security updates ([Postal updates are still manual though, but very easy...](https://github.com/atech/postal/wiki/Upgrading))
 
@@ -23,7 +25,7 @@ Ansible is a tool that you install on your computer that will connect to your se
 # ⚠️ Special Notes ⚠️
 This code has been running in production and has been running well for us. Few important notes for you to understand:
 
-* It has been tested on **Ubuntu 18.04 only**
+* It has been tested on **Debian 12 bookworm**
 * We see improvements how this repository could be organized better, but it is the first release and we just wanted to focus on getting the code out there for people to reference
 
 # Preparing your server
@@ -35,7 +37,7 @@ You can self-host this, or go with a cloud provider. Cloud providers will probab
 ### System requirements
 * At least 2GB of RAM (for the smallest Postal instances)
 * **TWO** Static public facing IP addresses (if you plan to use [Click & Open Tracking](https://github.com/atech/postal/wiki/Click-&-Open-Tracking))
-* We've only tested this Ansible deployment with **Ubuntu 18.04**
+* We've only tested this Ansible deployment with **Debian 12 bookworm**
 
 ## Recommended providers
 DISCLAIMER: The links below are affiliate links. This kicks back a few bucks to us for the referral, but does not cost you *anything* extra to you. Affiliate programs do not influence our recommendations in any sort of way either. These are the best recommendations available.

@@ -1,6 +1,12 @@
-- name: Load secret key into variable.
-  shell: "cat {{ postal_secret_key_file }}"
-  register: postal_secret_key
+# - name: Load secret key into variable.
+#   shell: "cat {{ postal_secret_key_file }}"
+#   register: postal_secret_key
+
+- name: Ensure postal config dir EXISTS
+  ansible.builtin.file:
+    path: /opt/postal/config
+    state: directory
+
 
 - name: Ensure the Postal configuration is up to date.
   template:
@@ -8,11 +14,11 @@
     dest: /opt/postal/config/postal.yml
   notify: restart postal
 
-- name: Allow Postal ports
-  ufw:
-    rule: allow
-    port: "{{ item }}"
-  with_items:
-    - '80'
-    - '443'
-    - '25'
+# - name: Allow Postal ports
+#   ufw:
+#     rule: allow
+#     port: "{{ item }}"
+#   with_items:
+#     - '80'
+#     - '443'
+#     - '25'

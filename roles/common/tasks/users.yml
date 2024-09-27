@@ -24,12 +24,12 @@
     - skip_missing: true
   when: item.0.state | default("present") != 'absent'
 
-- name: Allow passwordless sudo for sudo group
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%sudo'
-    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+# - name: Allow passwordless sudo for sudo group
+#   lineinfile:
+#     dest: /etc/sudoers
+#     state: present
+#     regexp: '^%sudo'
+#     line: '%sudo ALL=(ALL) NOPASSWD: ALL'
 
 - name: Disallow root SSH access
   lineinfile:
@@ -61,13 +61,13 @@
     port: "{{ ssh_port }}"
     proto: tcp
     
-- name: Enable UFW firewall
-  ufw:
-    state: enabled
-    logging: low
+# - name: Enable UFW firewall
+#   ufw:
+#     state: enabled
+#     logging: low
 
-- name: Install fail2ban
-  apt:
-    pkg: fail2ban
-    state: latest
-  notify: restart fail2ban
+# - name: Install fail2ban
+#   apt:
+#     pkg: fail2ban
+#     state: latest
+#   notify: restart fail2ban

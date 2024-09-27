@@ -2,4 +2,4 @@
 dependencies:
   - role: mariadb
   - role: rabbitmq
-  - role: nginx
+#  - role: nginx
